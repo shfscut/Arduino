@@ -26,7 +26,7 @@ class Handle(object):
             hashcode = sha1.hexdigest()
             print "handle/GET func: hashcode, signature: ", hashcode, signature
             if hashcode == signature:
-                return echostr
+                return "shf_23"
             else:
                 return ""
         except Exception, Argument:
