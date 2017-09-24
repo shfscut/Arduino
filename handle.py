@@ -12,7 +12,7 @@ class Handle(object):
         try:
             data = web.input()
             if len(data) == 0:
-                return "hello, this is handle view"
+                return "{"
             signature = data.signature
             timestamp = data.timestamp
             nonce = data.nonce
