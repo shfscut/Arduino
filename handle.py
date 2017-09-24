@@ -3,6 +3,9 @@
 
 import hashlib
 import web
+import reply
+import receive
+
 
 class Handle(object):
     def GET(self):
@@ -28,3 +31,10 @@ class Handle(object):
                 return ""
         except Exception, Argument:
             return Argument
+	
+    def POST(self):
+        try:
+            webData=web.data()
+            print "Handle Post webdata is ", webData
+            recMsg=receive.parse_xml(webData)
+            if isinstance(recMsg, receive.Msg) and
