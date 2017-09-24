@@ -9,7 +9,7 @@ class Handle(object):
         try:
 			data=web.input()
             if len(data)== 0 :
-                return "hello, this is handle view"
+               return "hello, this is handle view"
             signature=data.signature
             timestamp=data.timestamp
             nonce=data.nonce
