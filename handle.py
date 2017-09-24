@@ -8,7 +8,7 @@ class Handle(object):
     def GET(self):
         try:
 			data=web.input()
-            if len(data) == 0 :
+            if len(data)==0:
                	return "hello, this is handle view"
             signature=data.signature
             timestamp=data.timestamp
