@@ -42,8 +42,8 @@ class Handle(object):
             if isinstance(recMsg, receive.Msg) and recMsg.MsgType == 'text':
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
-                content = "test"
-                db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=sae.const.MYSQL_PORT, user=sae.const.MYSQL_USER, passwd=sae.const.MYSQL_PASS, db=sae.const.MYSQL_DB)
+                content =sae.const.MYSQL_HOST
+                #db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=sae.const.MYSQL_PORT, user=sae.const.MYSQL_USER, passwd=sae.const.MYSQL_PASS, db=sae.const.MYSQL_DB)
                 
                 replyMsg = reply.TextMsg(toUser, fromUser, content)
                 return replyMsg.send()
