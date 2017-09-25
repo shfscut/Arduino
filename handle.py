@@ -6,7 +6,7 @@ import web
 import reply
 import receive
 import sae.const
-import MySQLdb
+#import MySQLdb
 
 
 class Handle(object):
