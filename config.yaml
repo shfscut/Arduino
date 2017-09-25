@@ -5,3 +5,4 @@ libraries:
   version: "0.3.6"
 - name: lxml
   version: "2.3.4"
+- name: MySQLdb
