@@ -42,7 +42,7 @@ class Handle(object):
             if isinstance(recMsg, receive.Msg) and recMsg.MsgType == 'text':
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
-                content = None
+                content = ""
                 db=MySQLdb.connect(sae.const.MYSQL_HOST, sae.const.MYSQL_USER, sae.const.MYSQL_PASS, sae.const.MYSQL_DB)
                 cursor=db.cursor()
                 sql_query="SELECT * FROM switch where id=1"
