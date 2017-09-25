@@ -44,7 +44,47 @@ class Handle(object):
                 fromUser = recMsg.ToUserName
                 content =sae.const.MYSQL_USER
                 db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT), user=sae.const.MYSQL_USER, passwd=sae.const.MYSQL_PASS, db=sae.const.MYSQL_DB)
-                
+                cursor = db.cursor()
+                sql_query = "SELECT * FROM switch where id=1"
+                sql_update_1 = "UPDATE switch set state=1 where id=1"
+                sql_update_0 = "UPDATE switch set state=0 where id=1"
+                arduino_id, arduino_state = None, None
+                try:
+                    cursor.execute(sql_query)
+                    results = cursor.fetchall()
+                    for row in results:
+                        arduino_id = row[0]
+                        arduino_state = row[1]
+                except:
+                    content = "Error: unable to fetch data"
+                if recMsg.Content == "open":
+                    if arduino_state != 1:
+
+                        try:
+                            cursor.execute(sql_update_1)
+                            db.commit()
+                        except:
+                            db.rollback()
+                elif recMsg.Content == "close":
+                    if arduino_state != 0:
+
+                        try:
+                            cursor.execute(sql_update_0)
+                            db.commit()
+                        except:
+                            db.rollback()
+                else:
+                    content = recMsg.Content
+                try:
+                    cursor.execute(sql_query)
+                    results = cursor.fetchall()
+                    for row in results:
+                        arduino_id = row[0]
+                        arduino_state = row[1]
+                    content = "arduino_state:" + str(arduino_state)
+                except:
+                    content = "Error: unable to fetch data"
+                db.close()
                 replyMsg = reply.TextMsg(toUser, fromUser, content)
                 return replyMsg.send()
             else:
