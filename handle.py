@@ -84,6 +84,7 @@ class Handle(object):
                     content = "arduino_state:"+str(arduino_state)
                 except:
                     content = "Error: unable to fetch data"
+                db.close()
                 replyMsg = reply.TextMsg(toUser, fromUser, content)
                 return replyMsg.send()
             else:
