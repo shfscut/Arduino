@@ -45,7 +45,7 @@ class Handle(object):
                 content = None
                 db=MySQLdb.connect(sae.const.MYSQL_HOST, sae.const.MYSQL_USER, sae.const.MYSQL_PASS, sae.const.MYSQL_DB)
                 cursor=db.cursor()
-                sql_query="SELECT * FROM switch where id = 1"
+                sql_query="SELECT * FROM switch where id=1"
                 sql_update_1="UPDATE switch set state=1 where id=1"
                 sql_update_0="UPDATE switch set state=0 where id=1"
                 arduino_id, arduino_state=None, None
