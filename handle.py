@@ -73,6 +73,8 @@ class Handle(object):
                             db.commit()
                         except:
                             db.rollback()
+                else:
+                    content = recMsg.Content
                 try:
                     cursor.execute(sql)
                     results=cursor.fetchall()
