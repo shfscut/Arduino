@@ -14,7 +14,24 @@ class Handle(object):
         try:
             data = web.input()
             if len(data) == 0:
-                return "{"
+                db=MySQLdb.connect(host=sae.const.MYSQL_HOST,port=int(sae.const.MYSQL_PORT), user=sae.const.MYSQL_USER, passwd=sae.const.MYSQL_PASS, db=sae.const.MYSQL_DB)
+                cursor = db.cursor()
+                sql_query = "SELECT * FROM switch where id=1"
+                content=""
+                try:
+                    cursor.execute(sql_query)
+                    results = cursor.fetchall()
+                    for row in results:
+                        arduino_id = row[0]
+                        arduino_state = row[1]
+                    	content = arduino_state
+                except:
+                    content = "Error: unable to fetch data"
+                if content==1:
+                    return "}"
+                elif content==0:
+                    return "{"
+                return None
             signature = data.signature
             timestamp = data.timestamp
             nonce = data.nonce
