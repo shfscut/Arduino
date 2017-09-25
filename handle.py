@@ -5,6 +5,7 @@ import hashlib
 import web
 import reply
 import receive
+import sae.const
 
 
 class Handle(object):
@@ -40,7 +41,7 @@ class Handle(object):
             if isinstance(recMsg, receive.Msg) and recMsg.MsgType == 'text':
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
-                content = recMsg.Content
+                content = sae.const.MYSQL_DB
                 replyMsg = reply.TextMsg(toUser, fromUser, content)
                 return replyMsg.send()
             else:
