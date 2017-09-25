@@ -6,7 +6,7 @@ import web
 import reply
 import receive
 import sae.const
-#import MySQLdb
+import MySQLdb
 
 
 class Handle(object):
@@ -43,7 +43,7 @@ class Handle(object):
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
                 content = "test"
-                #b=MySQLdb.connect(sae.const.MYSQL_HOST, sae.const.MYSQL_USER, sae.const.MYSQL_PASS, sae.const.MYSQL_DB)
+                db=MySQLdb.connect(sae.const.MYSQL_HOST, sae.const.MYSQL_USER, sae.const.MYSQL_PASS, sae.const.MYSQL_DB)
                 
                 replyMsg = reply.TextMsg(toUser, fromUser, content)
                 return replyMsg.send()
