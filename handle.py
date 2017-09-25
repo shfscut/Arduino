@@ -42,7 +42,7 @@ class Handle(object):
             if isinstance(recMsg, receive.Msg) and recMsg.MsgType == 'text':
                 toUser = recMsg.FromUserName
                 fromUser = recMsg.ToUserName
-                content = ""
+                content = "test"
                 #b=MySQLdb.connect(sae.const.MYSQL_HOST, sae.const.MYSQL_USER, sae.const.MYSQL_PASS, sae.const.MYSQL_DB)
                 
                 replyMsg = reply.TextMsg(toUser, fromUser, content)
