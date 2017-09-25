@@ -50,7 +50,7 @@ class Handle(object):
                 sql_update_0="UPDATE switch set state=0 where id=1"
                 arduino_id, arduino_state=None, None
                 try:
-                    cursor.execute(sql)
+                    cursor.execute(sql_query)
                     results=cursor.fetchall()
                     for row in results:
                         arduino_id=row[0]
@@ -61,7 +61,7 @@ class Handle(object):
                     if arduino_state != 1:
                         
                         try:
-                            cursor.execute(sql_update)
+                            cursor.execute(sql_update_1)
                             db.commit()
                         except:
                             db.rollback()
@@ -69,14 +69,14 @@ class Handle(object):
                     if arduino_state != 0:
                         
                         try:
-                            cursor.execute(sql_update)
+                            cursor.execute(sql_update_0)
                             db.commit()
                         except:
                             db.rollback()
                 else:
                     content = recMsg.Content
                 try:
-                    cursor.execute(sql)
+                    cursor.execute(sql_query)
                     results=cursor.fetchall()
                     for row in results:
                         arduino_id=row[0]
