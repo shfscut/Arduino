@@ -36,7 +36,7 @@ class Handle(object):
             timestamp = data.timestamp
             nonce = data.nonce
             echostr = data.echostr
-            token = "helloshfscut"
+            token = "xxxxxx" #替换为自己的
 
             list = [token, timestamp, nonce]
             list.sort()
